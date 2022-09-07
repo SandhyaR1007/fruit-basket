@@ -12,7 +12,6 @@ const App = () => {
     } else if (val == "") {
       setName("");
     } else {
-      console.log(Object.values(fruits));
       setColor("");
       setName("Looks like we don't have this fruit !!");
     }
