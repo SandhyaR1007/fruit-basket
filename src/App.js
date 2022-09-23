@@ -8,7 +8,7 @@ const App = () => {
   const checkCart = (val) => {
     if (Object.keys(fruits).includes(val)) {
       setName(fruits[val].name);
-      setName(fruits[val].color);
+      setColor(fruits[val].color);
     } else if (val == "") {
       setName("");
     } else {
