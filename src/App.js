@@ -6,14 +6,27 @@ const App = () => {
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
   const checkCart = (val) => {
-    if (Object.keys(fruits).includes(val)) {
+    let keysArr = Object.keys(fruits);
+    let valuesArr = Object.values(fruits);
+    if (val == "") {
+      setName("");
+    } else if (keysArr.includes(val)) {
       setName(fruits[val].name);
       setColor(fruits[val].color);
-    } else if (val == "") {
-      setName("");
     } else {
-      setColor("");
-      setName("Looks like we don't have this fruit !!");
+      let found = null;
+      valuesArr.forEach((item, index) => {
+        if (item.name.toLowerCase() == val.toLowerCase()) {
+          found = index;
+        }
+      });
+      if (found !== null) {
+        setName(keysArr[found]);
+        setColor(valuesArr[found].color);
+      } else {
+        setColor("");
+        setName("Looks like we don't have this fruit !!");
+      }
     }
   };
   return (
